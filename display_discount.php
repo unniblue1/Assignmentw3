@@ -1,8 +1,9 @@
 <?php
     // get the data from the form
-    $product_description = $_POST['product_description'];
-    $list_price = $_POST['list_price'];
-    $discount_percent = $_POST['discount_percent'];
+    $product_description = filter_input(INPUT_POST,'product_description');
+    $list_price = filter_input(INPUT_POST,'list_price');
+   
+   $discount_percent = filter_input(INPUT_POST,'discount_percent');
     
     // calculate the discount
     $discount = $list_price * $discount_percent * .01;
@@ -20,12 +21,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Product Discount1</title>
+    <title>Product Discount Calculator</title>
     <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
     <main>
-        <h1>Product Discount2</h1>
+        
+	<h1>Product Discount Calculator</h1>
 
         <label>Product Description:</label>
         <span><?php echo $product_description_escaped; ?></span><br>
